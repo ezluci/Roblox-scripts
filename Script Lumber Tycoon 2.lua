@@ -1,6 +1,5 @@
 --BORING THINGS
 local OK = Instance.new("ScreenGui")
-local MainBar = Instance.new("Frame")
 local Main = Instance.new("Frame")
 local MainClose = Instance.new("TextButton")
 local OpenBut = Instance.new("TextButton")
@@ -10,16 +9,6 @@ local WalkSpeedOff = Instance.new("TextButton")
 --PROPERTIES
 OK.Name = "OK"
 OK.Parent = game.CoreGui
-
-MainBar.Name = "MainBar"
-MainBar.Parent = OK
-MainBar.BackgroundColor3 = Color3.new(0, 0, 0)
-MainBar.BackgroundTransparency = 0.3
-MainBar.Position = UDim2.new(0, 0, 0.4, 0)
-MainBar.Size = UDim2.new(0, 400, 0, 20)
-MainBar.Draggable = true
-MainBar.Active = true
-MainBar.Visible = false
 
 Main.Name = "Main"
 Main.Parent = MainBar
