@@ -25,6 +25,9 @@ local vnau1MenuJumpPowerOn = Instance.new("TextButton")
 local vnau1MenuJumpPowerNumber = Instance.new("TextBox")
 local vnau1MenuNoClipOff = Instance.new("TextButton")
 local vnau1MenuNoClipOn = Instance.new("TextButton")
+local vnau1MenuFlyOff = Instance.new("TextButton")
+local vnau1MenuFlyOn = Instance.new("TextButton")
+local vnau1MenuFlyRealOn = Instance.new("TextButton")
 --local vnau2Menu = Instance.new("Frame")
 --local vnau3Menu = Instance.new("Frame")
 --local vnau4Menu = Instance.new("Frame")
@@ -48,7 +51,7 @@ OpenBut.TextSize = 16
 Main.Name = "Main"
 Main.Parent = OK
 Main.BackgroundColor3 = Color3.new(0, 0, 0)
-Main.BackgroundTransparency = 0.4
+Main.BackgroundTransparency = 0.3
 Main.Position = UDim2.new(0, 0, 0.6, 0)
 Main.Size = UDim2.new(0, 400, 0, 300)
 Main.Visible = false
@@ -286,7 +289,7 @@ vnau1MenuJumpPowerNumber.Text = "150"
 vnau1MenuJumpPowerNumber.TextColor3 = Color3.new(0, 0, 1)
 vnau1MenuJumpPowerNumber.TextSize = 16
 
-vnau1MenuNoClipOff.Name = "vnau1MenuNoClip"
+vnau1MenuNoClipOff.Name = "vnau1MenuNoClipOff"
 vnau1MenuNoClipOff.Parent = vnau1Menu
 vnau1MenuNoClipOff.BackgroundColor3 = Color3.new(0.18039215, 0.85882352, 0.85098039)
 vnau1MenuNoClipOff.BackgroundTransparency = 0.5
@@ -308,6 +311,41 @@ vnau1MenuNoClipOn.Text = "no clip - on (hold V)"
 vnau1MenuNoClipOn.TextColor3 = Color3.new(1, 1, 1)
 vnau1MenuNoClipOn.TextSize = 16
 vnau1MenuNoClipOn.Visible = false
+
+vnau1MenuFlyOff.Name = "vnau1MenuFlyOff"
+vnau1MenuFlyOff.Parent = vnau1Menu
+vnau1MenuFlyOff.BackgroundColor3 = Color3.new(0.18039215, 0.85882352, 0.85098039)
+vnau1MenuFlyOff.BackgroundTransparency = 0.5
+vnau1MenuFlyOff.Position = UDim2.new(0, 0, 0.75, 0)
+vnau1MenuFlyOff.Size = UDim2.new(0, 300, 0, 58.5)
+vnau1MenuFlyOff.Font = Enum.Font.SciFi
+vnau1MenuFlyOff.Text = "fly - off"
+vnau1MenuFlyOff.TextColor3 = Color3.new(1, 1, 1)
+vnau1MenuFlyOff.TextSize = 16
+
+vnau1MenuFlyOn.Name = "vnau1MenuFlyOn"
+vnau1MenuFlyOn.Parent = vnau1Menu
+vnau1MenuFlyOn.BackgroundColor3 = Color3.new(0.18039215, 0.85882352, 0.85098039)
+vnau1MenuFlyOn.BackgroundTransparency = 0.5
+vnau1MenuFlyOn.Position = UDim2.new(0, 0, 0.75, 0)
+vnau1MenuFlyOn.Size = UDim2.new(0, 300, 0, 58.5)
+vnau1MenuFlyOn.Font = Enum.Font.SciFi
+vnau1MenuFlyOn.Text = "fly - on (press Q - off)"
+vnau1MenuFlyOn.TextColor3 = Color3.new(1, 1, 1)
+vnau1MenuFlyOn.TextSize = 16
+vnau1MenuFlyOn.Visible = false
+
+vnau1MenuFlyRealOn.Name = "vnau1MenuFlyRealOn"
+vnau1MenuFlyRealOn.Parent = vnau1Menu
+vnau1MenuFlyRealOn.BackgroundColor3 = Color3.new(0.18039215, 0.85882352, 0.85098039)
+vnau1MenuFlyRealOn.BackgroundTransparency = 0.5
+vnau1MenuFlyRealOn.Position = UDim2.new(0, 0, 0.75, 0)
+vnau1MenuFlyRealOn.Size = UDim2.new(0, 300, 0, 58.5)
+vnau1MenuFlyRealOn.Font = Enum.Font.SciFi
+vnau1MenuFlyRealOn.Text = "fly - on (press Q - on)"
+vnau1MenuFlyRealOn.TextColor3 = Color3.new(1, 1, 1)
+vnau1MenuFlyRealOn.TextSize = 16
+vnau1MenuFlyRealOn.Visible = false
 
 
 --MOUSE1CLICK EVENTS
@@ -530,5 +568,12 @@ vnau1MenuNoClipOn.MouseButton1Down:Connect (
         vnau1MenuNoClipOn.Visible = false
         vnau1MenuNoClipOff.Visible = true
         game:GetService("RunService"):UnbindFromRenderStep("NoClipBind")
+    end
+)
+
+vnau1MenuFlyOff.MouseButton1Down:Connect (
+    function()
+        vnau1MenuFlyOff.Visible = false
+        vnau1MenuFlyOn.Visible = true
     end
 )
