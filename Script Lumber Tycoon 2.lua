@@ -4,31 +4,38 @@ local OpenBut = Instance.new("TextButton")
 local Main = Instance.new("Frame")
 local GUIQuit = Instance.new("TextButton")
 local MainClose = Instance.new("TextButton")
-local vnau1 = Instance.new("TextButton")
-local vnau1Pressed = Instance.new("TextButton")
-local vnau2 = Instance.new("TextButton")
-local vnau2Pressed = Instance.new("TextButton")
+local Basic = Instance.new("TextButton")
+local BasicPressed = Instance.new("TextButton")
+local Server = Instance.new("TextButton")
+local ServerPressed = Instance.new("TextButton")
 local vnau3 = Instance.new("TextButton")
 local vnau3Pressed = Instance.new("TextButton")
-local vnau4 = Instance.new("TextButton")
-local vnau4Pressed = Instance.new("TextButton")
+local About = Instance.new("TextButton")
+local AboutPressed = Instance.new("TextButton")
 local vnauDefaultMenu = Instance.new("Frame")
 local vnauDefaultMenuText1 = Instance.new("TextLabel")
 local vnauDefaultMenuText2 = Instance.new("TextLabel")
 local vnauDefaultMenuText3 = Instance.new("TextLabel")
-local vnau1Menu = Instance.new("Frame")
-local vnau1MenuWalkSpeedOff = Instance.new("TextButton")
-local vnau1MenuWalkSpeedOn = Instance.new("TextButton")
-local vnau1MenuWalkSpeedNumber = Instance.new("TextBox")
-local vnau1MenuJumpPowerOff = Instance.new("TextButton")
-local vnau1MenuJumpPowerOn = Instance.new("TextButton")
-local vnau1MenuJumpPowerNumber = Instance.new("TextBox")
-local vnau1MenuNoClipOff = Instance.new("TextButton")
-local vnau1MenuNoClipOn = Instance.new("TextButton")
-local vnau1MenuFly = Instance.new("TextButton")
---local vnau2Menu = Instance.new("Frame")
---local vnau3Menu = Instance.new("Frame")
---local vnau4Menu = Instance.new("Frame")
+local BasicMenu = Instance.new("Frame")
+local BasicMenuWalkSpeedOff = Instance.new("TextButton")
+local BasicMenuWalkSpeedOn = Instance.new("TextButton")
+local BasicMenuWalkSpeedNumber = Instance.new("TextBox")
+local BasicMenuJumpPowerOff = Instance.new("TextButton")
+local BasicMenuJumpPowerOn = Instance.new("TextButton")
+local BasicMenuJumpPowerNumber = Instance.new("TextBox")
+local BasicMenuNoClipOff = Instance.new("TextButton")
+local BasicMenuNoClipOn = Instance.new("TextButton")
+local BasicMenuFly = Instance.new("TextButton")
+local ServerMenu = Instance.new("Frame")
+local ServerMenuPositionText = Instance.new("TextLabel")
+local ServerMenuCoordinatesText = Instance.new("TextLabel")
+local ServerMenuSetCoordinates = Instance.new("TextButton")
+local ServerMenuCoordX = 0
+local ServerMenuCoordY = 0
+local ServerMenuCoordZ = 0
+local ServerMenuTPWood = Instance.new("TextButton")
+local vnau3Menu = Instance.new("Frame")
+local AboutMenu = Instance.new("Frame")
 
 
 --PROPERTIES
@@ -78,51 +85,51 @@ MainClose.Text = "close"
 MainClose.TextColor3 = Color3.new(0.914, 0.386, 0.386)
 MainClose.TextSize = 12
 
-vnau1.Name = "vnau1"    
-vnau1.Parent = Main
-vnau1.BackgroundColor3 = Color3.new(1, 1, 1)
-vnau1.BackgroundTransparency = 0.7
-vnau1.Position = UDim2.new(0, 0, 0.06, 0)
-vnau1.Size = UDim2.new(0, 80, 0, 60)
-vnau1.Font = Enum.Font.SciFi
-vnau1.Text = "vnau1"
-vnau1.TextColor3 = Color3.new(0, 1, 0)
-vnau1.TextSize = 17
+Basic.Name = "Basic"    
+Basic.Parent = Main
+Basic.BackgroundColor3 = Color3.new(1, 1, 1)
+Basic.BackgroundTransparency = 0.7
+Basic.Position = UDim2.new(0, 0, 0.06, 0)
+Basic.Size = UDim2.new(0, 80, 0, 60)
+Basic.Font = Enum.Font.SciFi
+Basic.Text = "basic hacks\nfor client"
+Basic.TextColor3 = Color3.new(0, 1, 0)
+Basic.TextSize = 16
 
-vnau1Pressed.Name = "vnau1Pressed"
-vnau1Pressed.Parent = Main
-vnau1Pressed.BackgroundColor3 = Color3.new(1, 0, 1)
-vnau1Pressed.BackgroundTransparency = 0.7
-vnau1Pressed.Position = UDim2.new(0, 0, 0.06, 0)
-vnau1Pressed.Size = UDim2.new(0, 80, 0, 60)
-vnau1Pressed.Font = Enum.Font.SciFi
-vnau1Pressed.Text = "vnau1"
-vnau1Pressed.TextColor3 = Color3.new(0, 1, 0)
-vnau1Pressed.TextSize = 17
-vnau1Pressed.Visible = false
+BasicPressed.Name = "BasicPressed"
+BasicPressed.Parent = Main
+BasicPressed.BackgroundColor3 = Color3.new(1, 0, 1)
+BasicPressed.BackgroundTransparency = 0.7
+BasicPressed.Position = UDim2.new(0, 0, 0.06, 0)
+BasicPressed.Size = UDim2.new(0, 80, 0, 60)
+BasicPressed.Font = Enum.Font.SciFi
+BasicPressed.Text = "basic hacks\nfor client"
+BasicPressed.TextColor3 = Color3.new(0, 1, 0)
+BasicPressed.TextSize = 16
+BasicPressed.Visible = false
 
-vnau2.Name = "vnau2"
-vnau2.Parent = Main
-vnau2.BackgroundColor3 = Color3.new(1, 1, 1)
-vnau2.BackgroundTransparency = 0.7
-vnau2.Position = UDim2.new(0, 0, 0.286, 0)
-vnau2.Size = UDim2.new(0, 80, 0, 60)
-vnau2.Font = Enum.Font.SciFi
-vnau2.Text = "vnau2"
-vnau2.TextColor3 = Color3.new(0, 1, 0)
-vnau2.TextSize = 17
+Server.Name = "Server"
+Server.Parent = Main
+Server.BackgroundColor3 = Color3.new(1, 1, 1)
+Server.BackgroundTransparency = 0.7
+Server.Position = UDim2.new(0, 0, 0.286, 0)
+Server.Size = UDim2.new(0, 80, 0, 60)
+Server.Font = Enum.Font.SciFi
+Server.Text = "hacks\nfor server"
+Server.TextColor3 = Color3.new(0, 1, 0)
+Server.TextSize = 16
 
-vnau2Pressed.Name = "vnau2Pressed"
-vnau2Pressed.Parent = Main
-vnau2Pressed.BackgroundColor3 = Color3.new(1, 0, 1)
-vnau2Pressed.BackgroundTransparency = 0.7
-vnau2Pressed.Position = UDim2.new(0, 0, 0.286, 0)
-vnau2Pressed.Size = UDim2.new(0, 80, 0, 60)
-vnau2Pressed.Font = Enum.Font.SciFi
-vnau2Pressed.Text = "vnau2"
-vnau2Pressed.TextColor3 = Color3.new(0, 1, 0)
-vnau2Pressed.TextSize = 17
-vnau2Pressed.Visible = false
+ServerPressed.Name = "ServerPressed"
+ServerPressed.Parent = Main
+ServerPressed.BackgroundColor3 = Color3.new(1, 0, 1)
+ServerPressed.BackgroundTransparency = 0.7
+ServerPressed.Position = UDim2.new(0, 0, 0.286, 0)
+ServerPressed.Size = UDim2.new(0, 80, 0, 60)
+ServerPressed.Font = Enum.Font.SciFi
+ServerPressed.Text = "hacks\nfor server"
+ServerPressed.TextColor3 = Color3.new(0, 1, 0)
+ServerPressed.TextSize = 16
+ServerPressed.Visible = false
 
 vnau3.Name = "vnau3"
 vnau3.Parent = Main
@@ -133,7 +140,7 @@ vnau3.Size = UDim2.new(0, 80, 0, 60)
 vnau3.Font = Enum.Font.SciFi
 vnau3.Text = "vnau3"
 vnau3.TextColor3 = Color3.new(0, 1, 0)
-vnau3.TextSize = 17
+vnau3.TextSize = 16
 
 vnau3Pressed.Name = "vnau3Pressed"
 vnau3Pressed.Parent = Main
@@ -144,31 +151,31 @@ vnau3Pressed.Size = UDim2.new(0, 80, 0, 60)
 vnau3Pressed.Font = Enum.Font.SciFi
 vnau3Pressed.Text = "vnau3"
 vnau3Pressed.TextColor3 = Color3.new(0, 1, 0)
-vnau3Pressed.TextSize = 17
+vnau3Pressed.TextSize = 16
 vnau3Pressed.Visible = false
 
-vnau4.Name = "vnau4"
-vnau4.Parent = Main
-vnau4.BackgroundColor3 = Color3.new(1, 1, 1)
-vnau4.BackgroundTransparency = 0.7
-vnau4.Position = UDim2.new(0, 0, 0.738, 0)
-vnau4.Size = UDim2.new(0, 80, 0, 60)
-vnau4.Font = Enum.Font.SciFi
-vnau4.Text = "vnau4"
-vnau4.TextColor3 = Color3.new(0, 1, 0)
-vnau4.TextSize = 17
+About.Name = "About"
+About.Parent = Main
+About.BackgroundColor3 = Color3.new(1, 1, 1)
+About.BackgroundTransparency = 0.7
+About.Position = UDim2.new(0, 0, 0.738, 0)
+About.Size = UDim2.new(0, 80, 0, 60)
+About.Font = Enum.Font.SciFi
+About.Text = "About"
+About.TextColor3 = Color3.new(0, 1, 0)
+About.TextSize = 16
 
-vnau4Pressed.Name = "vnau4Pressed"
-vnau4Pressed.Parent = Main
-vnau4Pressed.BackgroundColor3 = Color3.new(1, 0, 1)
-vnau4Pressed.BackgroundTransparency = 0.7
-vnau4Pressed.Position = UDim2.new(0, 0, 0.738, 0)
-vnau4Pressed.Size = UDim2.new(0, 80, 0, 60)
-vnau4Pressed.Font = Enum.Font.SciFi
-vnau4Pressed.Text = "vnau4"
-vnau4Pressed.TextColor3 = Color3.new(0, 1, 0)
-vnau4Pressed.TextSize = 17
-vnau4Pressed.Visible = false
+AboutPressed.Name = "AboutPressed"
+AboutPressed.Parent = Main
+AboutPressed.BackgroundColor3 = Color3.new(1, 0, 1)
+AboutPressed.BackgroundTransparency = 0.7
+AboutPressed.Position = UDim2.new(0, 0, 0.738, 0)
+AboutPressed.Size = UDim2.new(0, 80, 0, 60)
+AboutPressed.Font = Enum.Font.SciFi
+AboutPressed.Text = "About"
+AboutPressed.TextColor3 = Color3.new(0, 1, 0)
+AboutPressed.TextSize = 16
+AboutPressed.Visible = false
 
 vnauDefaultMenu.Name = "vnauDefaultMenu"
 vnauDefaultMenu.Parent = Main
@@ -176,7 +183,6 @@ vnauDefaultMenu.BackgroundColor3 = Color3.new(0, 0, 0)
 vnauDefaultMenu.BackgroundTransparency = 1
 vnauDefaultMenu.Position = UDim2.new(0.25, 0, 0.11, 0)
 vnauDefaultMenu.Size = UDim2.new(0, 300, 0, 234)
-vnauDefaultMenu.Visible = true
 
 vnauDefaultMenuText1.Name = "vnauDefaultMenuText1"
 vnauDefaultMenuText1.Parent = vnauDefaultMenu
@@ -207,119 +213,186 @@ vnauDefaultMenuText3.BackgroundTransparency = 1
 vnauDefaultMenuText3.Position = UDim2.new(0, 0, 0.6965805, 0)
 vnauDefaultMenuText3.Size = UDim2.new(0, 300, 0, 50)
 vnauDefaultMenuText3.Font = Enum.Font.SciFi
-vnauDefaultMenuText3.Text = "If you want to learn more about me,\nplease go to the last menu (vnau4)."
+vnauDefaultMenuText3.Text = "If you want to learn more about me,\nplease go to the last menu (About)."
 vnauDefaultMenuText3.TextColor3 = Color3.new(0, 1, 1)
 vnauDefaultMenuText3.TextSize = 15
 
-vnau1Menu.Name = "vnau1Menu"
-vnau1Menu.Parent = Main
-vnau1Menu.BackgroundColor3 = Color3.new(0, 0, 0)
-vnau1Menu.BackgroundTransparency = 1
-vnau1Menu.Position = UDim2.new(0.25, 0, 0.11, 0)
-vnau1Menu.Size = UDim2.new(0, 300, 0, 234)
-vnau1Menu.Visible = false
+BasicMenu.Name = "BasicMenu"
+BasicMenu.Parent = Main
+BasicMenu.BackgroundColor3 = Color3.new(0, 0, 0)
+BasicMenu.BackgroundTransparency = 1
+BasicMenu.Position = UDim2.new(0.25, 0, 0.11, 0)
+BasicMenu.Size = UDim2.new(0, 300, 0, 234)
+BasicMenu.Visible = false
 
-vnau1MenuWalkSpeedOff.Name = "vnau1MenuWalkSpeedOff"
-vnau1MenuWalkSpeedOff.Parent = vnau1Menu
-vnau1MenuWalkSpeedOff.BackgroundColor3 = Color3.new(0.18039215, 0.85882352, 0.85098039)
-vnau1MenuWalkSpeedOff.BackgroundTransparency = 0.5
-vnau1MenuWalkSpeedOff.Position = UDim2.new(0, 0, 0, 0)
-vnau1MenuWalkSpeedOff.Size = UDim2.new(0, 200, 0, 58.5)
-vnau1MenuWalkSpeedOff.Font = Enum.Font.SciFi
-vnau1MenuWalkSpeedOff.Text = "walk speed - off"
-vnau1MenuWalkSpeedOff.TextColor3 = Color3.new(1, 1, 1)
-vnau1MenuWalkSpeedOff.TextSize = 16
+BasicMenuWalkSpeedOff.Name = "BasicMenuWalkSpeedOff"
+BasicMenuWalkSpeedOff.Parent = BasicMenu
+BasicMenuWalkSpeedOff.BackgroundColor3 = Color3.new(0.18039215, 0.85882352, 0.85098039)
+BasicMenuWalkSpeedOff.BackgroundTransparency = 0.5
+BasicMenuWalkSpeedOff.Position = UDim2.new(0, 0, 0, 0)
+BasicMenuWalkSpeedOff.Size = UDim2.new(0, 200, 0, 58.5)
+BasicMenuWalkSpeedOff.Font = Enum.Font.SciFi
+BasicMenuWalkSpeedOff.Text = "walk speed - off"
+BasicMenuWalkSpeedOff.TextColor3 = Color3.new(1, 1, 1)
+BasicMenuWalkSpeedOff.TextSize = 16
 
-vnau1MenuWalkSpeedOn.Name = "vnau1MenuWalkSpeedOn"
-vnau1MenuWalkSpeedOn.Parent = vnau1Menu
-vnau1MenuWalkSpeedOn.BackgroundColor3 = Color3.new(0.18039215, 0.85882352, 0.85098039)
-vnau1MenuWalkSpeedOn.BackgroundTransparency = 0.5
-vnau1MenuWalkSpeedOn.Position = UDim2.new(0, 0, 0, 0)
-vnau1MenuWalkSpeedOn.Size = UDim2.new(0, 200, 0, 58.5)
-vnau1MenuWalkSpeedOn.Font = Enum.Font.SciFi
-vnau1MenuWalkSpeedOn.Text = "walk speed - on"
-vnau1MenuWalkSpeedOn.TextColor3 = Color3.new(1, 1, 1)
-vnau1MenuWalkSpeedOn.TextSize = 16
-vnau1MenuWalkSpeedOn.Visible = false
+BasicMenuWalkSpeedOn.Name = "BasicMenuWalkSpeedOn"
+BasicMenuWalkSpeedOn.Parent = BasicMenu
+BasicMenuWalkSpeedOn.BackgroundColor3 = Color3.new(0.18039215, 0.85882352, 0.85098039)
+BasicMenuWalkSpeedOn.BackgroundTransparency = 0.5
+BasicMenuWalkSpeedOn.Position = UDim2.new(0, 0, 0, 0)
+BasicMenuWalkSpeedOn.Size = UDim2.new(0, 200, 0, 58.5)
+BasicMenuWalkSpeedOn.Font = Enum.Font.SciFi
+BasicMenuWalkSpeedOn.Text = "walk speed - on"
+BasicMenuWalkSpeedOn.TextColor3 = Color3.new(1, 1, 1)
+BasicMenuWalkSpeedOn.TextSize = 16
+BasicMenuWalkSpeedOn.Visible = false
 
-vnau1MenuWalkSpeedNumber.Name = "vnau1MenuWalkSpeedNumber"
-vnau1MenuWalkSpeedNumber.Parent = vnau1Menu
-vnau1MenuWalkSpeedNumber.BackgroundColor3 = Color3.new(0.5, 0.9, 0)
-vnau1MenuWalkSpeedNumber.BackgroundTransparency = 0.5
-vnau1MenuWalkSpeedNumber.Position = UDim2.new(0.66666666666, 0, 0, 0)
-vnau1MenuWalkSpeedNumber.Size = UDim2.new(0, 100, 0, 58.5)
-vnau1MenuWalkSpeedNumber.Font = Enum.Font.SciFi
-vnau1MenuWalkSpeedNumber.Text = "48"
-vnau1MenuWalkSpeedNumber.TextColor3 = Color3.new(0, 0, 1)
-vnau1MenuWalkSpeedNumber.TextSize = 16
+BasicMenuWalkSpeedNumber.Name = "BasicMenuWalkSpeedNumber"
+BasicMenuWalkSpeedNumber.Parent = BasicMenu
+BasicMenuWalkSpeedNumber.BackgroundColor3 = Color3.new(0.5, 0.9, 0)
+BasicMenuWalkSpeedNumber.BackgroundTransparency = 0.5
+BasicMenuWalkSpeedNumber.Position = UDim2.new(0.66666666666, 0, 0, 0)
+BasicMenuWalkSpeedNumber.Size = UDim2.new(0, 100, 0, 58.5)
+BasicMenuWalkSpeedNumber.Font = Enum.Font.SciFi
+BasicMenuWalkSpeedNumber.Text = "48"
+BasicMenuWalkSpeedNumber.TextColor3 = Color3.new(0, 0, 1)
+BasicMenuWalkSpeedNumber.TextSize = 16
 
-vnau1MenuJumpPowerOff.Name = "vnau1MenuJumpPowerOff"
-vnau1MenuJumpPowerOff.Parent = vnau1Menu
-vnau1MenuJumpPowerOff.BackgroundColor3 = Color3.new(0.18039215, 0.85882352, 0.85098039)
-vnau1MenuJumpPowerOff.BackgroundTransparency = 0.5
-vnau1MenuJumpPowerOff.Position = UDim2.new(0, 0, 0.25, 0)
-vnau1MenuJumpPowerOff.Size = UDim2.new(0, 200, 0, 58.5)
-vnau1MenuJumpPowerOff.Font = Enum.Font.SciFi
-vnau1MenuJumpPowerOff.Text = "jump power - off"
-vnau1MenuJumpPowerOff.TextColor3 = Color3.new(1, 1, 1)
-vnau1MenuJumpPowerOff.TextSize = 16
+BasicMenuJumpPowerOff.Name = "BasicMenuJumpPowerOff"
+BasicMenuJumpPowerOff.Parent = BasicMenu
+BasicMenuJumpPowerOff.BackgroundColor3 = Color3.new(0.18039215, 0.85882352, 0.85098039)
+BasicMenuJumpPowerOff.BackgroundTransparency = 0.5
+BasicMenuJumpPowerOff.Position = UDim2.new(0, 0, 0.25, 0)
+BasicMenuJumpPowerOff.Size = UDim2.new(0, 200, 0, 58.5)
+BasicMenuJumpPowerOff.Font = Enum.Font.SciFi
+BasicMenuJumpPowerOff.Text = "jump power - off"
+BasicMenuJumpPowerOff.TextColor3 = Color3.new(1, 1, 1)
+BasicMenuJumpPowerOff.TextSize = 16
 
-vnau1MenuJumpPowerOn.Name = "vnau1MenuJumpPowerOn"
-vnau1MenuJumpPowerOn.Parent = vnau1Menu
-vnau1MenuJumpPowerOn.BackgroundColor3 = Color3.new(0.18039215, 0.85882352, 0.85098039)
-vnau1MenuJumpPowerOn.BackgroundTransparency = 0.5
-vnau1MenuJumpPowerOn.Position = UDim2.new(0, 0, 0.25, 0)
-vnau1MenuJumpPowerOn.Size = UDim2.new(0, 200, 0, 58.5)
-vnau1MenuJumpPowerOn.Font = Enum.Font.SciFi
-vnau1MenuJumpPowerOn.Text = "jump power - on"
-vnau1MenuJumpPowerOn.TextColor3 = Color3.new(1, 1, 1)
-vnau1MenuJumpPowerOn.TextSize = 16
-vnau1MenuJumpPowerOn.Visible = false
+BasicMenuJumpPowerOn.Name = "BasicMenuJumpPowerOn"
+BasicMenuJumpPowerOn.Parent = BasicMenu
+BasicMenuJumpPowerOn.BackgroundColor3 = Color3.new(0.18039215, 0.85882352, 0.85098039)
+BasicMenuJumpPowerOn.BackgroundTransparency = 0.5
+BasicMenuJumpPowerOn.Position = UDim2.new(0, 0, 0.25, 0)
+BasicMenuJumpPowerOn.Size = UDim2.new(0, 200, 0, 58.5)
+BasicMenuJumpPowerOn.Font = Enum.Font.SciFi
+BasicMenuJumpPowerOn.Text = "jump power - on"
+BasicMenuJumpPowerOn.TextColor3 = Color3.new(1, 1, 1)
+BasicMenuJumpPowerOn.TextSize = 16
+BasicMenuJumpPowerOn.Visible = false
 
-vnau1MenuJumpPowerNumber.Name = "vnau1MenuJumpPowerNumber"
-vnau1MenuJumpPowerNumber.Parent = vnau1Menu
-vnau1MenuJumpPowerNumber.BackgroundColor3 = Color3.new(0.5, 0.9, 0)
-vnau1MenuJumpPowerNumber.BackgroundTransparency = 0.5
-vnau1MenuJumpPowerNumber.Position = UDim2.new(0.66666666666, 0, 0.25, 0)
-vnau1MenuJumpPowerNumber.Size = UDim2.new(0, 100, 0, 58.5)
-vnau1MenuJumpPowerNumber.Font = Enum.Font.SciFi
-vnau1MenuJumpPowerNumber.Text = "150"
-vnau1MenuJumpPowerNumber.TextColor3 = Color3.new(0, 0, 1)
-vnau1MenuJumpPowerNumber.TextSize = 16
+BasicMenuJumpPowerNumber.Name = "BasicMenuJumpPowerNumber"
+BasicMenuJumpPowerNumber.Parent = BasicMenu
+BasicMenuJumpPowerNumber.BackgroundColor3 = Color3.new(0.5, 0.9, 0)
+BasicMenuJumpPowerNumber.BackgroundTransparency = 0.5
+BasicMenuJumpPowerNumber.Position = UDim2.new(0.66666666666, 0, 0.25, 0)
+BasicMenuJumpPowerNumber.Size = UDim2.new(0, 100, 0, 58.5)
+BasicMenuJumpPowerNumber.Font = Enum.Font.SciFi
+BasicMenuJumpPowerNumber.Text = "150"
+BasicMenuJumpPowerNumber.TextColor3 = Color3.new(0, 0, 1)
+BasicMenuJumpPowerNumber.TextSize = 16
 
-vnau1MenuNoClipOff.Name = "vnau1MenuNoClipOff"
-vnau1MenuNoClipOff.Parent = vnau1Menu
-vnau1MenuNoClipOff.BackgroundColor3 = Color3.new(0.18039215, 0.85882352, 0.85098039)
-vnau1MenuNoClipOff.BackgroundTransparency = 0.5
-vnau1MenuNoClipOff.Position = UDim2.new(0, 0, 0.5, 0)
-vnau1MenuNoClipOff.Size = UDim2.new(0, 300, 0, 58.5)
-vnau1MenuNoClipOff.Font = Enum.Font.SciFi
-vnau1MenuNoClipOff.Text = "no clip - off"
-vnau1MenuNoClipOff.TextColor3 = Color3.new(1, 1, 1)
-vnau1MenuNoClipOff.TextSize = 16
+BasicMenuNoClipOff.Name = "BasicMenuNoClipOff"
+BasicMenuNoClipOff.Parent = BasicMenu
+BasicMenuNoClipOff.BackgroundColor3 = Color3.new(0.18039215, 0.85882352, 0.85098039)
+BasicMenuNoClipOff.BackgroundTransparency = 0.5
+BasicMenuNoClipOff.Position = UDim2.new(0, 0, 0.5, 0)
+BasicMenuNoClipOff.Size = UDim2.new(0, 300, 0, 58.5)
+BasicMenuNoClipOff.Font = Enum.Font.SciFi
+BasicMenuNoClipOff.Text = "no clip - off"
+BasicMenuNoClipOff.TextColor3 = Color3.new(1, 1, 1)
+BasicMenuNoClipOff.TextSize = 16
 
-vnau1MenuNoClipOn.Name = "vnau1MenuNoClipOn"
-vnau1MenuNoClipOn.Parent = vnau1Menu
-vnau1MenuNoClipOn.BackgroundColor3 = Color3.new(0.18039215, 0.85882352, 0.85098039)
-vnau1MenuNoClipOn.BackgroundTransparency = 0.5
-vnau1MenuNoClipOn.Position = UDim2.new(0, 0, 0.5, 0)
-vnau1MenuNoClipOn.Size = UDim2.new(0, 300, 0, 58.5)
-vnau1MenuNoClipOn.Font = Enum.Font.SciFi
-vnau1MenuNoClipOn.Text = "no clip - on (hold V)"
-vnau1MenuNoClipOn.TextColor3 = Color3.new(1, 1, 1)
-vnau1MenuNoClipOn.TextSize = 16
-vnau1MenuNoClipOn.Visible = false
+BasicMenuNoClipOn.Name = "BasicMenuNoClipOn"
+BasicMenuNoClipOn.Parent = BasicMenu
+BasicMenuNoClipOn.BackgroundColor3 = Color3.new(0.18039215, 0.85882352, 0.85098039)
+BasicMenuNoClipOn.BackgroundTransparency = 0.5
+BasicMenuNoClipOn.Position = UDim2.new(0, 0, 0.5, 0)
+BasicMenuNoClipOn.Size = UDim2.new(0, 300, 0, 58.5)
+BasicMenuNoClipOn.Font = Enum.Font.SciFi
+BasicMenuNoClipOn.Text = "no clip - on (hold V)"
+BasicMenuNoClipOn.TextColor3 = Color3.new(1, 1, 1)
+BasicMenuNoClipOn.TextSize = 16
+BasicMenuNoClipOn.Visible = false
 
-vnau1MenuFly.Name = "vnau1MenuFly"
-vnau1MenuFly.Parent = vnau1Menu
-vnau1MenuFly.BackgroundColor3 = Color3.new(0.18039215, 0.85882352, 0.85098039)
-vnau1MenuFly.BackgroundTransparency = 0.5
-vnau1MenuFly.Position = UDim2.new(0, 0, 0.75, 0)
-vnau1MenuFly.Size = UDim2.new(0, 300, 0, 58.5)
-vnau1MenuFly.Font = Enum.Font.SciFi
-vnau1MenuFly.Text = "fly (toggle with Q)"
-vnau1MenuFly.TextColor3 = Color3.new(1, 1, 1)
-vnau1MenuFly.TextSize = 16
+BasicMenuFly.Name = "BasicMenuFly"
+BasicMenuFly.Parent = BasicMenu
+BasicMenuFly.BackgroundColor3 = Color3.new(0.18039215, 0.85882352, 0.85098039)
+BasicMenuFly.BackgroundTransparency = 0.5
+BasicMenuFly.Position = UDim2.new(0, 0, 0.75, 0)
+BasicMenuFly.Size = UDim2.new(0, 300, 0, 58.5)
+BasicMenuFly.Font = Enum.Font.SciFi
+BasicMenuFly.Text = "fly (toggle with Q)"
+BasicMenuFly.TextColor3 = Color3.new(1, 1, 1)
+BasicMenuFly.TextSize = 16
+
+ServerMenu.Name = "ServerMenu"
+ServerMenu.Parent = Main
+ServerMenu.BackgroundColor3 = Color3.new(0, 0, 0)
+ServerMenu.BackgroundTransparency = 1
+ServerMenu.Position = UDim2.new(0.25, 0, 0.11, 0)
+ServerMenu.Size = UDim2.new(0, 300, 0, 234)
+ServerMenu.Visible = false
+
+ServerMenuPositionText.Name = "ServerMenuPositionText"
+ServerMenuPositionText.Parent = ServerMenu
+ServerMenuPositionText.BackgroundColor3 = Color3.new(0, 0, 0)
+ServerMenuPositionText.BackgroundTransparency = 1
+ServerMenuPositionText.Position = UDim2.new(0, 0, 0, 0)
+ServerMenuPositionText.Size = UDim2.new(0, 300, 0, 25)
+ServerMenuPositionText.Font = Enum.Font.SciFi
+ServerMenuPositionText.Text = "Your coordinates are"
+ServerMenuPositionText.TextColor3 = Color3.new(0, 1, 1)
+ServerMenuPositionText.TextSize = 15
+
+ServerMenuCoordinatesText.Name = "ServerMenuCoordinatesText"
+ServerMenuCoordinatesText.Parent = ServerMenu
+ServerMenuCoordinatesText.BackgroundColor3 = Color3.new(0, 0, 0)
+ServerMenuCoordinatesText.BackgroundTransparency = 1
+ServerMenuCoordinatesText.Position = UDim2.new(0, 0, 0.1068376, 0)
+ServerMenuCoordinatesText.Size = UDim2.new(0, 300, 0, 25)
+ServerMenuCoordinatesText.Font = Enum.Font.SciFi
+ServerMenuCoordinatesText.TextColor3 = Color3.new(0, 1, 1)
+ServerMenuCoordinatesText.TextSize = 15
+
+ServerMenuSetCoordinates.Name = "ServerMenuSetCoordinates"
+ServerMenuSetCoordinates.Parent = ServerMenu
+ServerMenuSetCoordinates.BackgroundColor3 = Color3.new(0, 1, 0)
+ServerMenuSetCoordinates.BackgroundTransparency = 0.5
+ServerMenuSetCoordinates.Position = UDim2.new(0, 0, 0.3, 0)
+ServerMenuSetCoordinates.Size = UDim2.new(0, 300, 0, 25)
+ServerMenuSetCoordinates.Font = Enum.Font.SciFi
+ServerMenuSetCoordinates.Text = "set coordinates"
+ServerMenuSetCoordinates.TextColor3 = Color3.new(0, 1, 1)
+ServerMenuSetCoordinates.TextSize = 15
+
+ServerMenuTPWood.Name = "ServerMenuTPWood"
+ServerMenuTPWood.Parent = ServerMenu
+ServerMenuTPWood.BackgroundColor3 = Color3.new(0, 1, 0)
+ServerMenuTPWood.BackgroundTransparency = 0.5
+ServerMenuTPWood.Position = UDim2.new(0, 0, 0.7, 0)
+ServerMenuTPWood.Size = UDim2.new(0, 300, 0, 25)
+ServerMenuTPWood.Font = Enum.Font.SciFi
+ServerMenuTPWood.Text = "TP WOOD (after you set coord)"
+ServerMenuTPWood.TextColor3 = Color3.new(0, 1, 1)
+ServerMenuTPWood.TextSize = 15
+
+vnau3Menu.Name = "vnau3Menu"
+vnau3Menu.Parent = Main
+vnau3Menu.BackgroundColor3 = Color3.new(0, 0, 0)
+vnau3Menu.BackgroundTransparency = 1
+vnau3Menu.Position = UDim2.new(0.25, 0, 0.11, 0)
+vnau3Menu.Size = UDim2.new(0, 300, 0, 234)
+vnau3Menu.Visible = false
+
+AboutMenu.Name = "AboutMenu"
+AboutMenu.Parent = Main
+AboutMenu.BackgroundColor3 = Color3.new(0, 0, 0)
+AboutMenu.BackgroundTransparency = 1
+AboutMenu.Position = UDim2.new(0.25, 0, 0.11, 0)
+AboutMenu.Size = UDim2.new(0, 300, 0, 234)
+AboutMenu.Visible = false
 
 
 --MOUSE1CLICK EVENTS
@@ -339,27 +412,40 @@ GUIQuit.MouseButton1Down:Connect (
         Main = nil
         GUIQuit = nil
         MainClose = nil
-        vnau1 = nil
-        vnau1Pressed = nil
-        vnau2 = nil
-        vnau2Pressed = nil
+        Basic = nil
+        BasicPressed = nil
+        Server = nil
+        ServerPressed = nil
         vnau3 = nil
         vnau3Pressed = nil
-        vnau4 = nil
-        vnau4Pressed = nil
+        About = nil
+        AboutPressed = nil
         vnauDefaultMenu = nil
         vnauDefaultMenuText1 = nil
         vnauDefaultMenuText2 = nil
         vnauDefaultMenuText3 = nil
-        vnau1Menu = nil
-        vnau1MenuWalkSpeedOff = nil
-        vnau1MenuWalkSpeedOn = nil
-        vnau1MenuWalkSpeedNumber = nil
-        vnau1MenuJumpPowerOff = nil
-        vnau1MenuJumpPowerOn = nil
-        vnau1MenuJumpPowerNumber = nil
-        vnau1MenuNoClipOff = nil
-        vnau1MenuNoClipOn = nil
+        BasicMenu = nil
+        BasicMenuWalkSpeedOff = nil
+        BasicMenuWalkSpeedOn = nil
+        BasicMenuWalkSpeedNumber = nil
+        BasicMenuJumpPowerOff = nil
+        BasicMenuJumpPowerOn = nil
+        BasicMenuJumpPowerNumber = nil
+        BasicMenuNoClipOff = nil
+        BasicMenuNoClipOn = nil
+        BasicMenuFly = nil
+        ServerMenu = nil
+        vnau3Menu = nil
+        AboutMenu = nil
+        mouse = nil
+        plr = nil
+        torso = nil
+        flying = nil
+        deb = nil
+        ctrl = nil
+        lastctrl = nil
+        maxspeed = nil
+        speed = nil
     end
 )
 
@@ -370,120 +456,160 @@ MainClose.MouseButton1Down:Connect (
     end
 )
 
-vnau1.MouseButton1Down:Connect (
+Basic.MouseButton1Down:Connect (
     function()
-        vnau1.Visible = false
-        vnau1Pressed.Visible = true
-        vnau2.Visible = true
-        vnau2Pressed.Visible = false
+        Basic.Visible = false
+        BasicPressed.Visible = true
+        Server.Visible = true
+        ServerPressed.Visible = false
         vnau3.Visible = true
         vnau3Pressed.Visible = false
-        vnau4.Visible = true
-        vnau4Pressed.Visible = false
-        vnau1Menu.Visible = true
+        About.Visible = true
+        AboutPressed.Visible = false
         vnauDefaultMenu.Visible = false
+        BasicMenu.Visible = true
+        ServerMenu.Visible = false
+        vnau3Menu.Visible = false
+        AboutMenu.Visible = false
     end
 )
 
-vnau1Pressed.MouseButton1Down:Connect (
+BasicPressed.MouseButton1Down:Connect (
     function()
-        vnau1.Visible = true
-        vnau1Pressed.Visible = false
-        vnau2.Visible = true
-        vnau2Pressed.Visible = false
+        Basic.Visible = true
+        BasicPressed.Visible = false
+        Server.Visible = true
+        ServerPressed.Visible = false
         vnau3.Visible = true
         vnau3Pressed.Visible = false
-        vnau4.Visible = true
-        vnau4Pressed.Visible = false
-        vnau1Menu.Visible = false
+        About.Visible = true
+        AboutPressed.Visible = false
         vnauDefaultMenu.Visible = true
+        BasicMenu.Visible = false
+        ServerMenu.Visible = false
+        vnau3Menu.Visible = false
+        AboutMenu.Visible = false
     end
 )
 
-vnau2.MouseButton1Down:Connect (
+Server.MouseButton1Down:Connect (
     function()
-        vnau1.Visible = true
-        vnau1Pressed.Visible = false
-        vnau2.Visible = false
-        vnau2Pressed.Visible = true
+        Basic.Visible = true
+        BasicPressed.Visible = false
+        Server.Visible = false
+        ServerPressed.Visible = true
         vnau3.Visible = true
         vnau3Pressed.Visible = false
-        vnau4.Visible = true
-        vnau4Pressed.Visible = false
+        About.Visible = true
+        AboutPressed.Visible = false
+        vnauDefaultMenu.Visible = false
+        BasicMenu.Visible = false
+        ServerMenu.Visible = true
+        vnau3Menu.Visible = false
+        AboutMenu.Visible = false
+        while ServerMenu.Visible do
+            ServerMenuCoordinatesText.Text = "X: " .. math.floor(game.Players.LocalPlayer.Character.Torso.Position.X) .. " Y= " .. math.floor(game.Players.LocalPlayer.Character.Torso.Position.Y) .. " Z= " .. math.floor(game.Players.LocalPlayer.Character.Torso.Position.Z)
+            wait(0.3)
+        end
     end
 )
 
-vnau2Pressed.MouseButton1Down:Connect (
+ServerPressed.MouseButton1Down:Connect (
     function()
-        vnau1.Visible = true
-        vnau1Pressed.Visible = false
-        vnau2.Visible = true
-        vnau2Pressed.Visible = false
+        Basic.Visible = true
+        BasicPressed.Visible = false
+        Server.Visible = true
+        ServerPressed.Visible = false
         vnau3.Visible = true
         vnau3Pressed.Visible = false
-        vnau4.Visible = true
-        vnau4Pressed.Visible = false
+        About.Visible = true
+        AboutPressed.Visible = false
+        vnauDefaultMenu.Visible = true
+        BasicMenu.Visible = false
+        ServerMenu.Visible = false
+        vnau3Menu.Visible = false
+        AboutMenu.Visible = false
     end
 )
 
 vnau3.MouseButton1Down:Connect (
     function()
-        vnau1.Visible = true
-        vnau1Pressed.Visible = false
-        vnau2.Visible = true
-        vnau2Pressed.Visible = false
+        Basic.Visible = true
+        BasicPressed.Visible = false
+        Server.Visible = true
+        ServerPressed.Visible = false
         vnau3.Visible = false
         vnau3Pressed.Visible = true
-        vnau4.Visible = true
-        vnau4Pressed.Visible = false
+        About.Visible = true
+        AboutPressed.Visible = false
+        vnauDefaultMenu.Visible = false
+        BasicMenu.Visible = false
+        ServerMenu.Visible = false
+        vnau3Menu.Visible = true
+        AboutMenu.Visible = false
     end
 )
 
 vnau3Pressed.MouseButton1Down:Connect (
     function()
-        vnau1.Visible = true
-        vnau1Pressed.Visible = false
-        vnau2.Visible = true
-        vnau2Pressed.Visible = false
+        Basic.Visible = true
+        BasicPressed.Visible = false
+        Server.Visible = true
+        ServerPressed.Visible = false
         vnau3.Visible = true
         vnau3Pressed.Visible = false
-        vnau4.Visible = true
-        vnau4Pressed.Visible = false
+        About.Visible = true
+        AboutPressed.Visible = false
+        vnauDefaultMenu.Visible = true
+        BasicMenu.Visible = false
+        ServerMenu.Visible = false
+        vnau3Menu.Visible = false
+        AboutMenu.Visible = false
     end
 )
 
-vnau4.MouseButton1Down:Connect (
+About.MouseButton1Down:Connect (
     function()
-        vnau1.Visible = true
-        vnau1Pressed.Visible = false
-        vnau2.Visible = true
-        vnau2Pressed.Visible = false
+        Basic.Visible = true
+        BasicPressed.Visible = false
+        Server.Visible = true
+        ServerPressed.Visible = false
         vnau3.Visible = true
         vnau3Pressed.Visible = false
-        vnau4.Visible = false
-        vnau4Pressed.Visible = true
+        About.Visible = false
+        AboutPressed.Visible = true
+        vnauDefaultMenu.Visible = false
+        BasicMenu.Visible = false
+        ServerMenu.Visible = false
+        vnau3Menu.Visible = false
+        AboutMenu.Visible = true
     end
 )
 
-vnau4Pressed.MouseButton1Down:Connect (
+AboutPressed.MouseButton1Down:Connect (
     function()
-        vnau1.Visible = true
-        vnau1Pressed.Visible = false
-        vnau2.Visible = true
-        vnau2Pressed.Visible = false
+        Basic.Visible = true
+        BasicPressed.Visible = false
+        Server.Visible = true
+        ServerPressed.Visible = false
         vnau3.Visible = true
         vnau3Pressed.Visible = false
-        vnau4.Visible = true
-        vnau4Pressed.Visible = false
+        About.Visible = true
+        AboutPressed.Visible = false
+        vnauDefaultMenu.Visible = true
+        BasicMenu.Visible = false
+        ServerMenu.Visible = false
+        vnau3Menu.Visible = false
+        AboutMenu.Visible = false
     end
 )
 
-vnau1MenuWalkSpeedOff.MouseButton1Down:Connect (
+BasicMenuWalkSpeedOff.MouseButton1Down:Connect (
     function()
-        vnau1MenuWalkSpeedOff.Visible = false
-        vnau1MenuWalkSpeedOn.Visible = true
-        while vnau1MenuWalkSpeedOn.Visible do
-            game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = vnau1MenuWalkSpeedNumber.Text
+        BasicMenuWalkSpeedOff.Visible = false
+        BasicMenuWalkSpeedOn.Visible = true
+        while BasicMenuWalkSpeedOn.Visible do
+            game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = BasicMenuWalkSpeedNumber.Text
             while game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftShift) do
                 game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 0
                 wait()
@@ -493,37 +619,37 @@ vnau1MenuWalkSpeedOff.MouseButton1Down:Connect (
     end
 )
 
-vnau1MenuWalkSpeedOn.MouseButton1Down:Connect (
+BasicMenuWalkSpeedOn.MouseButton1Down:Connect (
     function()
-        vnau1MenuWalkSpeedOn.Visible = false
-        vnau1MenuWalkSpeedOff.Visible = true
+        BasicMenuWalkSpeedOn.Visible = false
+        BasicMenuWalkSpeedOff.Visible = true
         game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
     end
 )
 
-vnau1MenuJumpPowerOff.MouseButton1Down:Connect (
+BasicMenuJumpPowerOff.MouseButton1Down:Connect (
     function()
-        vnau1MenuJumpPowerOff.Visible = false
-        vnau1MenuJumpPowerOn.Visible = true
-        while vnau1MenuJumpPowerOn.Visible do
-            game.Players.LocalPlayer.Character.Humanoid.JumpPower = vnau1MenuJumpPowerNumber.Text
+        BasicMenuJumpPowerOff.Visible = false
+        BasicMenuJumpPowerOn.Visible = true
+        while BasicMenuJumpPowerOn.Visible do
+            game.Players.LocalPlayer.Character.Humanoid.JumpPower = BasicMenuJumpPowerNumber.Text
             wait()
         end
     end
 )
 
-vnau1MenuJumpPowerOn.MouseButton1Down:Connect (
+BasicMenuJumpPowerOn.MouseButton1Down:Connect (
     function()
-        vnau1MenuJumpPowerOn.Visible = false
-        vnau1MenuJumpPowerOff.Visible = true
+        BasicMenuJumpPowerOn.Visible = false
+        BasicMenuJumpPowerOff.Visible = true
         game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
     end
 )
 
-vnau1MenuNoClipOff.MouseButton1Down:Connect (
+BasicMenuNoClipOff.MouseButton1Down:Connect (
     function()
-        vnau1MenuNoClipOff.Visible = false
-        vnau1MenuNoClipOn.Visible = true
+        BasicMenuNoClipOff.Visible = false
+        BasicMenuNoClipOn.Visible = true
         game:GetService("RunService"):BindToRenderStep ("NoClipBind", 0,
             function()
                 if not game.Players.LocalPlayer.Character:findFirstChildOfClass("Humanoid") then
@@ -537,15 +663,15 @@ vnau1MenuNoClipOff.MouseButton1Down:Connect (
     end
 )
 
-vnau1MenuNoClipOn.MouseButton1Down:Connect (
+BasicMenuNoClipOn.MouseButton1Down:Connect (
     function()
-        vnau1MenuNoClipOn.Visible = false
-        vnau1MenuNoClipOff.Visible = true
+        BasicMenuNoClipOn.Visible = false
+        BasicMenuNoClipOff.Visible = true
         game:GetService("RunService"):UnbindFromRenderStep("NoClipBind")
     end
 )
 
-vnau1MenuFly.MouseButton1Down:Connect (
+BasicMenuFly.MouseButton1Down:Connect (
     function()
         repeat wait()
         until game.Players.LocalPlayer and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:findFirstChild("Torso") and game.Players.LocalPlayer.Character:findFirstChild("Humanoid")
@@ -627,5 +753,41 @@ vnau1MenuFly.MouseButton1Down:Connect (
         end
         end)
         Fly()
+    end
+)
+
+ServerMenuSetCoordinates.MouseButton1Down:Connect (
+    function()
+        ServerMenuCoordX = math.floor(game.Players.LocalPlayer.Character.Torso.Position.X)
+        ServerMenuCoordY = math.floor(game.Players.LocalPlayer.Character.Torso.Position.Y)
+        ServerMenuCoordZ = math.floor(game.Players.LocalPlayer.Character.Torso.Position.Z)
+        ServerMenuSetCoordinates.Text = "set coordinates(COORD SET)"
+    end
+)
+
+ServerMenuTPWood.MouseButton1Down:Connect (
+    function()
+        for _, Log in pairs(workspace.LogModels:GetChildren()) do
+            if Log.Name:sub(1, 6) == "Loose_" and Log:findFirstChild("Owner") then
+                if Log.Owner.Value == game.Players.LocalPlayer then
+                    for i,v in pairs(Log:GetChildren()) do
+                        if v.Name=="WoodSection" then
+                            spawn(function()
+                                for i=1,10 do
+                                    wait()
+                                    v.CFrame=CFrame.new(Vector3.new(ServerMenuCoordX, ServerMenuCoordY + 60, ServerMenuCoordZ))*CFrame.Angles(math.rad(90),0,0)
+                                end
+                            end)
+                        end
+                    end
+                    spawn(function()
+                        for i=1,20 do
+                            wait()
+                            game.ReplicatedStorage.Interaction.ClientIsDragging:FireServer(Log)
+                        end
+                    end)
+                end
+            end
+        end
     end
 )
