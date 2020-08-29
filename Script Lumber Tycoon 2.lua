@@ -27,11 +27,14 @@ local BasicMenuNoClipOff = Instance.new("TextButton")
 local BasicMenuNoClipOn = Instance.new("TextButton")
 local BasicMenuFly = Instance.new("TextButton")
 local ServerMenu = Instance.new("Frame")
-local ServerMenuPositionText = Instance.new("TextLabel")
-local ServerMenuCoordinatesText = Instance.new("TextLabel")
+local ServerMenuCurrentCoordinatesText = Instance.new("TextLabel")
+local ServerMenuAddToYText = Instance.new("TextLabel")
+local ServerMenuAddToYBox = Instance.new("TextBox")
 local ServerMenuSetCoordinates = Instance.new("TextButton")
 local ServerMenuCoordX = 0
-local ServerMenuCoordY = 0
+local ServerMenuAddToYInt = 47
+local ServerMenuCoordY = 0 + ServerMenuAddToYInt
+local ServerMenuResultY
 local ServerMenuCoordZ = 0
 local ServerMenuTPWood = Instance.new("TextButton")
 local vnau3Menu = Instance.new("Frame")
@@ -335,33 +338,53 @@ ServerMenu.Position = UDim2.new(0.25, 0, 0.11, 0)
 ServerMenu.Size = UDim2.new(0, 300, 0, 234)
 ServerMenu.Visible = false
 
-ServerMenuPositionText.Name = "ServerMenuPositionText"
-ServerMenuPositionText.Parent = ServerMenu
-ServerMenuPositionText.BackgroundColor3 = Color3.new(0, 0, 0)
-ServerMenuPositionText.BackgroundTransparency = 1
-ServerMenuPositionText.Position = UDim2.new(0, 0, 0, 0)
-ServerMenuPositionText.Size = UDim2.new(0, 300, 0, 25)
-ServerMenuPositionText.Font = Enum.Font.SciFi
-ServerMenuPositionText.Text = "Your coordinates are"
-ServerMenuPositionText.TextColor3 = Color3.new(0, 1, 1)
-ServerMenuPositionText.TextSize = 15
+ServerMenuCurrentCoordinatesText.Name = "ServerMenuCurrentCoordinatesText"
+ServerMenuCurrentCoordinatesText.Parent = ServerMenu
+ServerMenuCurrentCoordinatesText.BackgroundColor3 = Color3.new(0, 0, 0)
+ServerMenuCurrentCoordinatesText.BackgroundTransparency = 1
+ServerMenuCurrentCoordinatesText.Position = UDim2.new(0, 0, 0, 0)
+ServerMenuCurrentCoordinatesText.Size = UDim2.new(0, 300, 0, 25)
+ServerMenuCurrentCoordinatesText.Font = Enum.Font.SciFi
+ServerMenuCurrentCoordinatesText.TextColor3 = Color3.new(0, 1, 1)
+ServerMenuCurrentCoordinatesText.TextSize = 15
 
-ServerMenuCoordinatesText.Name = "ServerMenuCoordinatesText"
-ServerMenuCoordinatesText.Parent = ServerMenu
-ServerMenuCoordinatesText.BackgroundColor3 = Color3.new(0, 0, 0)
-ServerMenuCoordinatesText.BackgroundTransparency = 1
-ServerMenuCoordinatesText.Position = UDim2.new(0, 0, 0.1068376, 0)
-ServerMenuCoordinatesText.Size = UDim2.new(0, 300, 0, 25)
-ServerMenuCoordinatesText.Font = Enum.Font.SciFi
-ServerMenuCoordinatesText.TextColor3 = Color3.new(0, 1, 1)
-ServerMenuCoordinatesText.TextSize = 15
+ServerMenuAddToYText.Name = "ServerMenuAddToYText"
+ServerMenuAddToYText.Parent = ServerMenu
+ServerMenuAddToYText.BackgroundColor3 = Color3.new(0, 0, 0)
+ServerMenuAddToYText.BackgroundTransparency = 1
+ServerMenuAddToYText.Position = UDim2.new(0, 0, 0.1068376, 0)
+ServerMenuAddToYText.Size = UDim2.new(0, 70, 0, 25)
+ServerMenuAddToYText.Font = Enum.Font.SciFi
+ServerMenuAddToYText.Text = "add to Y: "
+ServerMenuAddToYText.TextColor3 = Color3.new(1, 0, 0)
+ServerMenuAddToYText.TextSize = 15
+
+ServerMenuAddToYBox.Name = "ServerMenuAddToYBox"
+ServerMenuAddToYBox.Parent = ServerMenu
+ServerMenuAddToYBox.BackgroundColor3 = Color3.new(0.5, 0.9, 0)
+ServerMenuAddToYBox.BackgroundTransparency = 0.5
+ServerMenuAddToYBox.Position = UDim2.new(0.233333333, 0, 0.1068376, 0)
+ServerMenuAddToYBox.Size = UDim2.new(0, 50, 0, 25)
+ServerMenuAddToYBox.Font = Enum.Font.SciFi
+ServerMenuAddToYBox.Text = "47"
+ServerMenuAddToYBox.TextColor3 = Color3.new(0, 0, 1)
+ServerMenuAddToYBox.TextSize = 15
+ServerMenuAddToYBox:GetPropertyChangedSignal("Text"):Connect (
+    function()
+        ServerMenuAddToYInt = ServerMenuAddToYBox.Text
+        if tonumber(ServerMenuAddToYInt) then
+            ServerMenuResultY = ServerMenuAddToYInt + math.floor(game.Players.LocalPlayer.Character.Torso.Position.Y)
+        end
+    end
+)
+
 
 ServerMenuSetCoordinates.Name = "ServerMenuSetCoordinates"
 ServerMenuSetCoordinates.Parent = ServerMenu
 ServerMenuSetCoordinates.BackgroundColor3 = Color3.new(0, 1, 0)
 ServerMenuSetCoordinates.BackgroundTransparency = 0.5
-ServerMenuSetCoordinates.Position = UDim2.new(0, 0, 0.3, 0)
-ServerMenuSetCoordinates.Size = UDim2.new(0, 300, 0, 25)
+ServerMenuSetCoordinates.Position = UDim2.new(0.46666666, 0, 0.1068376, 0)
+ServerMenuSetCoordinates.Size = UDim2.new(0, 160, 0, 25)
 ServerMenuSetCoordinates.Font = Enum.Font.SciFi
 ServerMenuSetCoordinates.Text = "set coordinates"
 ServerMenuSetCoordinates.TextColor3 = Color3.new(0, 1, 1)
@@ -369,13 +392,13 @@ ServerMenuSetCoordinates.TextSize = 15
 
 ServerMenuTPWood.Name = "ServerMenuTPWood"
 ServerMenuTPWood.Parent = ServerMenu
-ServerMenuTPWood.BackgroundColor3 = Color3.new(0, 1, 0)
+ServerMenuTPWood.BackgroundColor3 = Color3.new(1, 0, 0)
 ServerMenuTPWood.BackgroundTransparency = 0.5
-ServerMenuTPWood.Position = UDim2.new(0, 0, 0.7, 0)
+ServerMenuTPWood.Position = UDim2.new(0, 0, 0.2136752, 0)
 ServerMenuTPWood.Size = UDim2.new(0, 300, 0, 25)
 ServerMenuTPWood.Font = Enum.Font.SciFi
-ServerMenuTPWood.Text = "TP WOOD (after you set coord)"
-ServerMenuTPWood.TextColor3 = Color3.new(0, 1, 1)
+ServerMenuTPWood.Text = "teleport wood to X=" .. ServerMenuCoordX .. " Y=" .. ServerMenuCoordY .. " Z=" .. ServerMenuCoordZ
+ServerMenuTPWood.TextColor3 = Color3.new(1, 1, 1)
 ServerMenuTPWood.TextSize = 15
 
 vnau3Menu.Name = "vnau3Menu"
@@ -508,8 +531,8 @@ Server.MouseButton1Down:Connect (
         vnau3Menu.Visible = false
         AboutMenu.Visible = false
         while ServerMenu.Visible do
-            ServerMenuCoordinatesText.Text = "X: " .. math.floor(game.Players.LocalPlayer.Character.Torso.Position.X) .. " Y= " .. math.floor(game.Players.LocalPlayer.Character.Torso.Position.Y) .. " Z= " .. math.floor(game.Players.LocalPlayer.Character.Torso.Position.Z)
-            wait(0.3)
+            ServerMenuCurrentCoordinatesText.Text = "current coordinates: X= " .. math.floor(game.Players.LocalPlayer.Character.Torso.Position.X) .. " Y= " .. ServerMenuResultY .. " Z= " .. math.floor(game.Players.LocalPlayer.Character.Torso.Position.Z)
+            wait()
         end
     end
 )
@@ -759,9 +782,12 @@ BasicMenuFly.MouseButton1Down:Connect (
 ServerMenuSetCoordinates.MouseButton1Down:Connect (
     function()
         ServerMenuCoordX = math.floor(game.Players.LocalPlayer.Character.Torso.Position.X)
-        ServerMenuCoordY = math.floor(game.Players.LocalPlayer.Character.Torso.Position.Y)
+        ServerMenuCoordY = ServerMenuResultY
         ServerMenuCoordZ = math.floor(game.Players.LocalPlayer.Character.Torso.Position.Z)
-        ServerMenuSetCoordinates.Text = "set coordinates(COORD SET)"
+        ServerMenuTPWood.Text = "teleport wood to X=" .. ServerMenuCoordX .. " Y=" .. ServerMenuCoordY .. " Z=" .. ServerMenuCoordZ
+        ServerMenuSetCoordinates.Text = "set coordinates (OK)"
+        wait(6)
+        ServerMenuSetCoordinates.Text = "set coordinates"
     end
 )
 
