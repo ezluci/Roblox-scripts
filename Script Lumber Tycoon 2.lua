@@ -1,4 +1,11 @@
 --BORING THINGS
+local ServerMenuCurrentCoordX = math.floor(game.Players.LocalPlayer.Character.Torso.Position.X)
+local ServerMenuAddToYInt = 47
+local ServerMenuCurrentCoordY = math.floor(game.Players.LocalPlayer.Character.Torso.Position.Y) + ServerMenuAddToYInt
+local ServerMenuCurrentCoordZ = math.floor(game.Players.LocalPlayer.Character.Torso.Position.Z)
+local ServerMenuCoordX = 0
+local ServerMenuCoordY = 0
+local ServerMenuCoordZ = 0
 local OK = Instance.new("ScreenGui")
 local OpenBut = Instance.new("TextButton")
 local Main = Instance.new("Frame")
@@ -31,12 +38,9 @@ local ServerMenuCurrentCoordinatesText = Instance.new("TextLabel")
 local ServerMenuAddToYText = Instance.new("TextLabel")
 local ServerMenuAddToYBox = Instance.new("TextBox")
 local ServerMenuSetCoordinates = Instance.new("TextButton")
-local ServerMenuCoordX = 0
-local ServerMenuAddToYInt = 47
-local ServerMenuCoordY = 0 + ServerMenuAddToYInt
-local ServerMenuResultY
-local ServerMenuCoordZ = 0
 local ServerMenuTPWood = Instance.new("TextButton")
+local ServerMenuAntiBl = Instance.new("TextButton")
+local ServerMenuRemoveTrees = Instance.new("TextButton")
 local vnau3Menu = Instance.new("Frame")
 local AboutMenu = Instance.new("Frame")
 
@@ -371,9 +375,13 @@ ServerMenuAddToYBox.TextColor3 = Color3.new(0, 0, 1)
 ServerMenuAddToYBox.TextSize = 15
 ServerMenuAddToYBox:GetPropertyChangedSignal("Text"):Connect (
     function()
-        ServerMenuAddToYInt = ServerMenuAddToYBox.Text
-        if tonumber(ServerMenuAddToYInt) then
-            ServerMenuResultY = ServerMenuAddToYInt + math.floor(game.Players.LocalPlayer.Character.Torso.Position.Y)
+        if ServerMenuAddToYBox.Text == '' then
+            repeat
+                wait()
+            until not ServerMenuAddToYBox.Text == ''
+        else
+            ServerMenuAddToYInt = ServerMenuAddToYBox.Text
+            tonumber(ServerMenuAddToYInt)
         end
     end
 )
@@ -400,6 +408,28 @@ ServerMenuTPWood.Font = Enum.Font.SciFi
 ServerMenuTPWood.Text = "teleport wood to X=" .. ServerMenuCoordX .. " Y=" .. ServerMenuCoordY .. " Z=" .. ServerMenuCoordZ
 ServerMenuTPWood.TextColor3 = Color3.new(1, 1, 1)
 ServerMenuTPWood.TextSize = 15
+
+ServerMenuAntiBl.Name = "ServerMenuAntiBl"
+ServerMenuAntiBl.Parent = ServerMenu
+ServerMenuAntiBl.BackgroundColor3 = Color3.new(1, 0, 0)
+ServerMenuAntiBl.BackgroundTransparency = 0.5
+ServerMenuAntiBl.Position = UDim2.new(0, 0, 0.3205128, 0)
+ServerMenuAntiBl.Size = UDim2.new(0, 300, 0, 25)
+ServerMenuAntiBl.Font = Enum.Font.SciFi
+ServerMenuAntiBl.Text = "anti blacklist (freeze 8 sec after press)"
+ServerMenuAntiBl.TextColor3 = Color3.new(1, 1, 1)
+ServerMenuAntiBl.TextSize = 15
+
+ServerMenuRemoveTrees.Name = "ServerMenuRemoveTrees"
+ServerMenuRemoveTrees.Parent = ServerMenu
+ServerMenuRemoveTrees.BackgroundColor3 = Color3.new(1, 0, 0)
+ServerMenuRemoveTrees.BackgroundTransparency = 0.5
+ServerMenuRemoveTrees.Position = UDim2.new(0, 0, 0.4273504, 0)
+ServerMenuRemoveTrees.Size = UDim2.new(0, 300, 0, 25)
+ServerMenuRemoveTrees.Font = Enum.Font.SciFi
+ServerMenuRemoveTrees.Text = "remove trees (insane server lag)"
+ServerMenuRemoveTrees.TextColor3 = Color3.new(1, 1, 1)
+ServerMenuRemoveTrees.TextSize = 15
 
 vnau3Menu.Name = "vnau3Menu"
 vnau3Menu.Parent = Main
@@ -531,7 +561,14 @@ Server.MouseButton1Down:Connect (
         vnau3Menu.Visible = false
         AboutMenu.Visible = false
         while ServerMenu.Visible do
-            ServerMenuCurrentCoordinatesText.Text = "current coordinates: X= " .. math.floor(game.Players.LocalPlayer.Character.Torso.Position.X) .. " Y= " .. ServerMenuResultY .. " Z= " .. math.floor(game.Players.LocalPlayer.Character.Torso.Position.Z)
+            ServerMenuCurrentCoordX = math.floor(game.Players.LocalPlayer.Character.Torso.Position.X)
+            if ServerMenuAddToYBox.Text == '' then
+                ServerMenuCurrentCoordY = math.floor(game.Players.LocalPlayer.Character.Torso.Position.Y)
+            else
+                ServerMenuCurrentCoordY = math.floor(game.Players.LocalPlayer.Character.Torso.Position.Y) + ServerMenuAddToYInt
+            end
+            ServerMenuCurrentCoordZ = math.floor(game.Players.LocalPlayer.Character.Torso.Position.Z)
+            ServerMenuCurrentCoordinatesText.Text = "current coordinates: X=" .. ServerMenuCurrentCoordX .. " Y=" .. ServerMenuCurrentCoordY .. " Z=" .. ServerMenuCurrentCoordZ
             wait()
         end
     end
@@ -673,8 +710,7 @@ BasicMenuNoClipOff.MouseButton1Down:Connect (
     function()
         BasicMenuNoClipOff.Visible = false
         BasicMenuNoClipOn.Visible = true
-        game:GetService("RunService"):BindToRenderStep ("NoClipBind", 0,
-            function()
+        game:GetService("RunService"):BindToRenderStep ("NoClipBind", 0, function()
                 if not game.Players.LocalPlayer.Character:findFirstChildOfClass("Humanoid") then
                     return
                 end
@@ -781,9 +817,9 @@ BasicMenuFly.MouseButton1Down:Connect (
 
 ServerMenuSetCoordinates.MouseButton1Down:Connect (
     function()
-        ServerMenuCoordX = math.floor(game.Players.LocalPlayer.Character.Torso.Position.X)
-        ServerMenuCoordY = ServerMenuResultY
-        ServerMenuCoordZ = math.floor(game.Players.LocalPlayer.Character.Torso.Position.Z)
+        ServerMenuCoordX = ServerMenuCurrentCoordX
+        ServerMenuCoordY = ServerMenuCurrentCoordY
+        ServerMenuCoordZ = ServerMenuCurrentCoordZ
         ServerMenuTPWood.Text = "teleport wood to X=" .. ServerMenuCoordX .. " Y=" .. ServerMenuCoordY .. " Z=" .. ServerMenuCoordZ
         ServerMenuSetCoordinates.Text = "set coordinates (OK)"
         wait(6)
@@ -801,7 +837,7 @@ ServerMenuTPWood.MouseButton1Down:Connect (
                             spawn(function()
                                 for i=1,10 do
                                     wait()
-                                    v.CFrame=CFrame.new(Vector3.new(ServerMenuCoordX, ServerMenuCoordY + 60, ServerMenuCoordZ))*CFrame.Angles(math.rad(90),0,0)
+                                    v.CFrame=CFrame.new(Vector3.new(ServerMenuCoordX, ServerMenuCoordY, ServerMenuCoordZ))*CFrame.Angles(math.rad(90),0,0)
                                 end
                             end)
                         end
@@ -815,5 +851,65 @@ ServerMenuTPWood.MouseButton1Down:Connect (
                 end
             end
         end
+    end
+)
+
+ServerMenuAntiBl.MouseButton1Down:Connect (
+    function()
+        local plr = game.Players.LocalPlayer
+        local cframe
+        for i,v in next, workspace:GetDescendants() do
+            if v:IsA("SpawnLocation") then
+                v.Touched:Connect (
+                    function(h)
+                        if h.Parent == plr.Character and cframe then
+                            plr.Character:SetPrimaryPartCFrame(cframe)
+                        end
+                    end
+                )
+            end
+        end
+
+        game:GetService("RunService"):BindToRenderStep("NO HACKS", Enum.RenderPriority.Last.Value, function()
+                if game.Players.LocalPlayer.Character.PrimaryPart then
+                    cframe = game.Players.LocalPlayer.Character.PrimaryPart.CFrame
+                end
+            end
+        )
+
+        for i,v in next, debug.getregistry() do
+            if type(v)=='function' and debug.getupvalues(v).lastUpdate then
+                debug.setupvalue(v, "lastUpdate", math.huge)
+                break
+            end
+        end
+
+        for i,v in next, workspace.Effects:GetChildren() do
+            if v:IsA("BasePart") and v.Name == "BlacklistWall" then
+                v:Destroy()
+            end
+        end
+
+        ServerMenuAntiBl.Text = "anti blacklist (use no clip)"
+    end
+)
+
+ServerMenuRemoveTrees.MouseButton1Down:Connect (
+    function()
+        for i,v in pairs(game.Workspace:GetDescendants()) do
+            if v.Name == "WoodSection" and v.Parent:FindFirstChild("CutEvent") then
+                game.ReplicatedStorage.Interaction.ClientIsDragging:FireServer(v.Parent)
+                game.ReplicatedStorage.Interaction.DestroyStructure:FireServer(v.Parent)
+            end
+        end
+        game.Workspace.DescendantAdded:Connect (
+            function(Thing)
+                wait(0.1)
+                if Thing.Name == "WoodSection" and Thing.Parent:FindFirstChild("CutEvent") then
+                    game.ReplicatedStorage.Interaction.ClientIsDragging:FireServer(Thing.Parent)
+                    game.ReplicatedStorage.Interaction.DestroyStructure:FireServer(Thing.Parent)
+                end
+            end
+        )
     end
 )
