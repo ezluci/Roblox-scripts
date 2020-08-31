@@ -41,6 +41,9 @@ local ServerMenuSetCoordinates = Instance.new("TextButton")
 local ServerMenuTPWood = Instance.new("TextButton")
 local ServerMenuAntiBl = Instance.new("TextButton")
 local ServerMenuRemoveTrees = Instance.new("TextButton")
+local ServerMenuAutoWoodBreak = Instance.new("TextButton")
+local ServerMenuTPGui = Instance.new("TextButton")
+local ServerMenuTPGuiScreenGui = Instance.new("ScreenGui")
 local vnau3Menu = Instance.new("Frame")
 local AboutMenu = Instance.new("Frame")
 
@@ -431,6 +434,28 @@ ServerMenuRemoveTrees.Text = "remove trees (insane server lag)"
 ServerMenuRemoveTrees.TextColor3 = Color3.new(1, 1, 1)
 ServerMenuRemoveTrees.TextSize = 15
 
+ServerMenuAutoWoodBreak.Name = "ServerMenuAutoWoodBreak"
+ServerMenuAutoWoodBreak.Parent = ServerMenu
+ServerMenuAutoWoodBreak.BackgroundColor3 = Color3.new(1, 0, 0)
+ServerMenuAutoWoodBreak.BackgroundTransparency = 0.5
+ServerMenuAutoWoodBreak.Position = UDim2.new(0, 0, 0.534188, 0)
+ServerMenuAutoWoodBreak.Size = UDim2.new(0, 300, 0, 25)
+ServerMenuAutoWoodBreak.Font = Enum.Font.SciFi
+ServerMenuAutoWoodBreak.Text = "auto wood break(not ready)"--stay close to a tree
+ServerMenuAutoWoodBreak.TextColor3 = Color3.new(1, 1, 1)
+ServerMenuAutoWoodBreak.TextSize = 13
+
+ServerMenuTPGui.Name = "ServerMenuTPGui"
+ServerMenuTPGui.Parent = ServerMenu
+ServerMenuTPGui.BackgroundColor3 = Color3.new(1, 0, 0)
+ServerMenuTPGui.BackgroundTransparency = 0.5
+ServerMenuTPGui.Position = UDim2.new(0, 0, 0.6410256, 0)
+ServerMenuTPGui.Size = UDim2.new(0, 300, 0, 25)
+ServerMenuTPGui.Font = Enum.Font.SciFi
+ServerMenuTPGui.Text = "Open teleport GUI(not mine)"
+ServerMenuTPGui.TextColor3 = Color3.new(1, 1, 1)
+ServerMenuTPGui.TextSize = 13
+
 vnau3Menu.Name = "vnau3Menu"
 vnau3Menu.Parent = Main
 vnau3Menu.BackgroundColor3 = Color3.new(0, 0, 0)
@@ -458,47 +483,8 @@ OpenBut.MouseButton1Down:Connect (
 
 GUIQuit.MouseButton1Down:Connect (
     function()
-        OK:ClearAllChildren()
+        ServerMenuTPGuiScreenGui:Destroy()
         OK:Destroy()
-        OK = nil
-        OpenBut = nil
-        Main = nil
-        GUIQuit = nil
-        MainClose = nil
-        Basic = nil
-        BasicPressed = nil
-        Server = nil
-        ServerPressed = nil
-        vnau3 = nil
-        vnau3Pressed = nil
-        About = nil
-        AboutPressed = nil
-        vnauDefaultMenu = nil
-        vnauDefaultMenuText1 = nil
-        vnauDefaultMenuText2 = nil
-        vnauDefaultMenuText3 = nil
-        BasicMenu = nil
-        BasicMenuWalkSpeedOff = nil
-        BasicMenuWalkSpeedOn = nil
-        BasicMenuWalkSpeedNumber = nil
-        BasicMenuJumpPowerOff = nil
-        BasicMenuJumpPowerOn = nil
-        BasicMenuJumpPowerNumber = nil
-        BasicMenuNoClipOff = nil
-        BasicMenuNoClipOn = nil
-        BasicMenuFly = nil
-        ServerMenu = nil
-        vnau3Menu = nil
-        AboutMenu = nil
-        mouse = nil
-        plr = nil
-        torso = nil
-        flying = nil
-        deb = nil
-        ctrl = nil
-        lastctrl = nil
-        maxspeed = nil
-        speed = nil
     end
 )
 
@@ -913,3 +899,345 @@ ServerMenuRemoveTrees.MouseButton1Down:Connect (
         )
     end
 )
+
+ServerMenuAutoWoodBreak.MouseButton1Down:Connect(function()
+    print("nothing happened! its a feature in development")
+end)
+
+ServerMenuTPGui.MouseButton1Down:Connect(function()
+    function Tlprt(x,y,z)
+        game.Players.LocalPlayer.Character.Humanoid.Sit = true
+        game.Players.LocalPlayer.Character.Humanoid.Jump = true
+    
+        wait(0.1)
+         game.Players.LocalPlayer.Character.Humanoid.Sit = true
+            game.Players.LocalPlayer.Character.Humanoid.Jump = true
+           local tweenService = game:GetService("TweenService")
+           local tweeningInformation = TweenInfo.new(
+       
+    3, -- Length
+    Enum.EasingStyle.Linear, -- Easing style of the TweenInfo
+    Enum.EasingDirection.Out, -- Easing direction of the TweenInfo
+    0, -- Number of times the tween will repeat   
+    false, -- Should the tween repeat?
+    0 -- Delay between each tween  
+    )
+    local partProperties = {
+        CFrame = CFrame.new(x,y,z)
+    }
+            local Tween = tweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart,tweeningInformation,partProperties)
+            Tween:Play()
+    end
+    local ServerMenuTPGuiFrame = Instance.new("Frame")
+    local ServerMenuTPGuiClose = Instance.new("TextButton")
+    local ServerMenuTPGuiCredits = Instance.new("TextButton")
+    local ServerMenuTPGuiWoodRUs = Instance.new("TextButton")
+    local ServerMenuTPGuiSpawnPoint = Instance.new("TextButton")
+    local ServerMenuTPGuiLandStore = Instance.new("TextButton")
+    local ServerMenuTPGuiLinksLogic = Instance.new("TextButton")
+    local ServerMenuTPGuiCave = Instance.new("TextButton")
+    local ServerMenuTPGuiVolcano = Instance.new("TextButton")
+    local ServerMenuTPGuiSwamp = Instance.new("TextButton")
+    local ServerMenuTPGuiPalmIsland = Instance.new("TextButton")
+    local ServerMenuTPGuiFancyFurnishings = Instance.new("TextButton")
+    local ServerMenuTPGuiBoxedCars = Instance.new("TextButton")
+    local ServerMenuTPGuiBobsShack = Instance.new("TextButton")
+    local ServerMenuTPGuiShrineOfSight = Instance.new("TextButton")
+    local ServerMenuTPGuiSkiLodge = Instance.new("TextButton")
+    local ServerMenuTPGuiFineArtsShop = Instance.new("TextButton")
+    local ServerMenuTPGuiEndTimes = Instance.new("TextButton")
+    local ServerMenuTPGuiDock = Instance.new("TextButton")
+    local ServerMenuTPGuiBridge = Instance.new("TextButton")
+    local ServerMenuTPGuiStrangeMan = Instance.new("TextButton")
+
+    ServerMenuTPGuiScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+    ServerMenuTPGuiScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+    ServerMenuTPGuiFrame.Parent = ServerMenuTPGuiScreenGui
+    ServerMenuTPGuiFrame.BackgroundColor3 = Color3.fromRGB(79, 79, 79)
+    ServerMenuTPGuiFrame.BorderColor3 = Color3.fromRGB(29, 29, 29)
+    ServerMenuTPGuiFrame.Position = UDim2.new(0.00365, 0, 0.055240795, 0)
+    ServerMenuTPGuiFrame.Size = UDim2.new(0, 137, 0, 785)
+    ServerMenuTPGuiFrame.Active = true
+    ServerMenuTPGuiFrame.Draggable = true
+
+    ServerMenuTPGuiClose.Name = "ServerMenuTPGuiClose"
+    ServerMenuTPGuiClose.Parent = ServerMenuTPGuiFrame
+
+    ServerMenuTPGuiCredits.Name = "ServerMenuTPGuiCredits"
+    ServerMenuTPGuiCredits.Parent = ServerMenuTPGuiFrame
+    ServerMenuTPGuiCredits.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    ServerMenuTPGuiCredits.Position = UDim2.new(0.0510948896, 0, 0.0108864699, 0)
+    ServerMenuTPGuiCredits.Size = UDim2.new(0, 121, 0, 28)
+    ServerMenuTPGuiCredits.Font = Enum.Font.SourceSans
+    ServerMenuTPGuiCredits.Text = "GUI by SlaxxF"
+    ServerMenuTPGuiCredits.TextColor3 = Color3.fromRGB(0, 0, 0)
+    ServerMenuTPGuiCredits.TextSize = 14.000
+    ServerMenuTPGuiCredits.Draggable = true
+
+    ServerMenuTPGuiWoodRUs.Name = "ServerMenuTPGuisWood R Us"
+    ServerMenuTPGuiWoodRUs.Parent = ServerMenuTPGuiFrame
+    ServerMenuTPGuiWoodRUs.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    ServerMenuTPGuiWoodRUs.Position = UDim2.new(0.0583941601, 0, 0.063763611, 0)
+    ServerMenuTPGuiWoodRUs.Size = UDim2.new(0, 121, 0, 28)
+    ServerMenuTPGuiWoodRUs.Font = Enum.Font.SourceSans
+    ServerMenuTPGuiWoodRUs.Text = "Wood R Us"
+    ServerMenuTPGuiWoodRUs.TextColor3 = Color3.fromRGB(0, 0, 0)
+    ServerMenuTPGuiWoodRUs.TextSize = 14.000
+    ServerMenuTPGuiWoodRUs.MouseButton1Down:connect(function()
+
+    Tlprt(265, 5, 57)
+    end)
+
+    ServerMenuTPGuiSpawnPoint.Name = "ServerMenuTPGuiSpawnPoint"
+    ServerMenuTPGuiSpawnPoint.Parent = ServerMenuTPGuiFrame
+    ServerMenuTPGuiSpawnPoint.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    ServerMenuTPGuiSpawnPoint.Position = UDim2.new(0.0583941601, 0, 0.116640747, 0)
+    ServerMenuTPGuiSpawnPoint.Size = UDim2.new(0, 121, 0, 28)
+    ServerMenuTPGuiSpawnPoint.Font = Enum.Font.SourceSans
+    ServerMenuTPGuiSpawnPoint.Text = "SpawnPoint"
+    ServerMenuTPGuiSpawnPoint.TextColor3 = Color3.fromRGB(0, 0, 0)
+    ServerMenuTPGuiSpawnPoint.TextSize = 14.000
+    ServerMenuTPGuiSpawnPoint.MouseButton1Down:connect(function()
+
+    Tlprt(155, 5, 74)
+    end)
+
+    ServerMenuTPGuiLandStore.Name = "ServerMenuTPGuiLand Store"
+    ServerMenuTPGuiLandStore.Parent = ServerMenuTPGuiFrame
+    ServerMenuTPGuiLandStore.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    ServerMenuTPGuiLandStore.Position = UDim2.new(0.0510948896, 0, 0.171073094, 0)
+    ServerMenuTPGuiLandStore.Size = UDim2.new(0, 121, 0, 28)
+    ServerMenuTPGuiLandStore.Font = Enum.Font.SourceSans
+    ServerMenuTPGuiLandStore.Text = "Land Store"
+    ServerMenuTPGuiLandStore.TextColor3 = Color3.fromRGB(0, 0, 0)
+    ServerMenuTPGuiLandStore.TextSize = 14.000
+    ServerMenuTPGuiLandStore.MouseButton1Down:connect(function()
+    Tlprt(258, 5, -99)
+    end)
+
+    ServerMenuTPGuiLinksLogic.Name = "ServerMenuTPGuiLink's Logic"
+    ServerMenuTPGuiLinksLogic.Parent = ServerMenuTPGuiFrame
+    ServerMenuTPGuiLinksLogic.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    ServerMenuTPGuiLinksLogic.Position = UDim2.new(0.0510948896, 0, 0.223950237, 0)
+    ServerMenuTPGuiLinksLogic.Size = UDim2.new(0, 121, 0, 28)
+    ServerMenuTPGuiLinksLogic.Font = Enum.Font.SourceSans
+    ServerMenuTPGuiLinksLogic.Text = "Link's Logic"
+    ServerMenuTPGuiLinksLogic.TextColor3 = Color3.fromRGB(0, 0, 0)
+    ServerMenuTPGuiLinksLogic.TextSize = 14.000
+    ServerMenuTPGuiLinksLogic.MouseButton1Down:connect(function()
+
+    Tlprt(4607, 9, -798)
+    end)
+
+    ServerMenuTPGuiCave.Name = "ServerMenuTPGuiCave"
+    ServerMenuTPGuiCave.Parent = ServerMenuTPGuiFrame
+    ServerMenuTPGuiCave.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    ServerMenuTPGuiCave.Position = UDim2.new(0.0583941601, 0, 0.278382599, 0)
+    ServerMenuTPGuiCave.Size = UDim2.new(0, 121, 0, 28)
+    ServerMenuTPGuiCave.Font = Enum.Font.SourceSans
+    ServerMenuTPGuiCave.Text = "Cave"
+    ServerMenuTPGuiCave.TextColor3 = Color3.fromRGB(0, 0, 0)
+    ServerMenuTPGuiCave.TextSize = 14.000
+    ServerMenuTPGuiCave.MouseButton1Down:connect(function()
+
+    Tlprt(3581, -177, 430)
+    end)
+
+    ServerMenuTPGuiVolcano.Name = "ServerMenuTPGuiVolcano"
+    ServerMenuTPGuiVolcano.Parent = ServerMenuTPGuiFrame
+    ServerMenuTPGuiVolcano.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    ServerMenuTPGuiVolcano.Position = UDim2.new(0.0510948896, 0, 0.332814932, 0)
+    ServerMenuTPGuiVolcano.Size = UDim2.new(0, 121, 0, 28)
+    ServerMenuTPGuiVolcano.Font = Enum.Font.SourceSans
+    ServerMenuTPGuiVolcano.Text = "Volcano"
+    ServerMenuTPGuiVolcano.TextColor3 = Color3.fromRGB(0, 0, 0)
+    ServerMenuTPGuiVolcano.TextSize = 14.000
+    ServerMenuTPGuiVolcano.MouseButton1Down:connect(function()
+
+    Tlprt(-1585, 625, 1140)
+    end)
+
+    ServerMenuTPGuiSwamp.Name = "ServerMenuTPGuiSwamp"
+    ServerMenuTPGuiSwamp.Parent = ServerMenuTPGuiFrame
+    ServerMenuTPGuiSwamp.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    ServerMenuTPGuiSwamp.Position = UDim2.new(0.0510948896, 0, 0.38569206, 0)
+    ServerMenuTPGuiSwamp.Size = UDim2.new(0, 121, 0, 28)
+    ServerMenuTPGuiSwamp.Font = Enum.Font.SourceSans
+    ServerMenuTPGuiSwamp.Text = "Swamp"
+    ServerMenuTPGuiSwamp.TextColor3 = Color3.fromRGB(0, 0, 0)
+    ServerMenuTPGuiSwamp.TextSize = 14.000
+    ServerMenuTPGuiSwamp.MouseButton1Down:connect(function()
+
+    Tlprt(-1209, 138, -801)
+    end)
+
+    ServerMenuTPGuiPalmIsland.Name = "ServerMenuTPGuiPalm Island"
+    ServerMenuTPGuiPalmIsland.Parent = ServerMenuTPGuiFrame
+    ServerMenuTPGuiPalmIsland.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    ServerMenuTPGuiPalmIsland.Position = UDim2.new(0.0583941601, 0, 0.438569188, 0)
+    ServerMenuTPGuiPalmIsland.Size = UDim2.new(0, 121, 0, 28)
+    ServerMenuTPGuiPalmIsland.Font = Enum.Font.SourceSans
+    ServerMenuTPGuiPalmIsland.Text = "Palm Island"
+    ServerMenuTPGuiPalmIsland.TextColor3 = Color3.fromRGB(0, 0, 0)
+    ServerMenuTPGuiPalmIsland.TextSize = 14.000
+    ServerMenuTPGuiPalmIsland.MouseButton1Down:connect(function()
+
+    Tlprt(2549, 5, -42)
+    end)
+
+    ServerMenuTPGuiFancyFurnishings.Name = "ServerMenuTPGuiFancy Furnishings"
+    ServerMenuTPGuiFancyFurnishings.Parent = ServerMenuTPGuiFrame
+    ServerMenuTPGuiFancyFurnishings.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    ServerMenuTPGuiFancyFurnishings.Position = UDim2.new(0.0510948896, 0, 0.491446316, 0)
+    ServerMenuTPGuiFancyFurnishings.Size = UDim2.new(0, 121, 0, 28)
+    ServerMenuTPGuiFancyFurnishings.Font = Enum.Font.SourceSans
+    ServerMenuTPGuiFancyFurnishings.Text = "Fancy Furnishings"
+    ServerMenuTPGuiFancyFurnishings.TextColor3 = Color3.fromRGB(0, 0, 0)
+    ServerMenuTPGuiFancyFurnishings.TextSize = 14.000
+    ServerMenuTPGuiFancyFurnishings.MouseButton1Down:connect(function()
+
+    Tlprt(491, 13, -1720)
+    end)
+
+    ServerMenuTPGuiBoxedCars.Name = "ServerMenuTPGuiBoxed Cars"
+    ServerMenuTPGuiBoxedCars.Parent = ServerMenuTPGuiFrame
+    ServerMenuTPGuiBoxedCars.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    ServerMenuTPGuiBoxedCars.Position = UDim2.new(0.0510948896, 0, 0.491446316, 0)
+    ServerMenuTPGuiBoxedCars.Size = UDim2.new(0, 121, 0, 28)
+    ServerMenuTPGuiBoxedCars.Font = Enum.Font.SourceSans
+    ServerMenuTPGuiBoxedCars.Text = "Boxed Cars"
+    ServerMenuTPGuiBoxedCars.TextColor3 = Color3.fromRGB(0, 0, 0)
+    ServerMenuTPGuiBoxedCars.TextSize = 14.000
+    ServerMenuTPGuiBoxedCars.MouseButton1Down:connect(function()
+
+    Tlprt(509, 5.2, -1463)
+    end)
+
+    ServerMenuTPGuiBobsShack.Name = "ServerMenuTPGuiBob's Shack"
+    ServerMenuTPGuiBobsShack.Parent = ServerMenuTPGuiFrame
+    ServerMenuTPGuiBobsShack.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    ServerMenuTPGuiBobsShack.Position = UDim2.new(0.0510948896, 0, 0.597200632, 0)
+    ServerMenuTPGuiBobsShack.Size = UDim2.new(0, 121, 0, 28)
+    ServerMenuTPGuiBobsShack.Font = Enum.Font.SourceSans
+    ServerMenuTPGuiBobsShack.Text = "Bob's Shack"
+    ServerMenuTPGuiBobsShack.TextColor3 = Color3.fromRGB(0, 0, 0)
+    ServerMenuTPGuiBobsShack.TextSize = 14.000
+    ServerMenuTPGuiBobsShack.MouseButton1Down:connect(function()
+
+    Tlprt(260, 10, -2542)
+    end)
+
+    ServerMenuTPGuiShrineOfSight.Name = "ServerMenuTPGuiShrine Of Sight"
+    ServerMenuTPGuiShrineOfSight.Parent = ServerMenuTPGuiFrame
+    ServerMenuTPGuiShrineOfSight.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    ServerMenuTPGuiShrineOfSight.Position = UDim2.new(0.0510948896, 0, 0.864696741, 0)
+    ServerMenuTPGuiShrineOfSight.Size = UDim2.new(0, 121, 0, 28)
+    ServerMenuTPGuiShrineOfSight.Font = Enum.Font.SourceSans
+    ServerMenuTPGuiShrineOfSight.Text = "Shrine Of Sight"
+    ServerMenuTPGuiShrineOfSight.TextColor3 = Color3.fromRGB(0, 0, 0)
+    ServerMenuTPGuiShrineOfSight.TextSize = 14.000
+    ServerMenuTPGuiShrineOfSight.MouseButton1Down:connect(function()
+
+    Tlprt(-1600, 205, 919)
+    end)
+
+    ServerMenuTPGuiSkiLodge.Name = "ServerMenuTPGuiSki Lodge"
+    ServerMenuTPGuiSkiLodge.Parent = ServerMenuTPGuiFrame
+    ServerMenuTPGuiSkiLodge.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    ServerMenuTPGuiSkiLodge.Position = UDim2.new(0.0510948896, 0, 0.811819613, 0)
+    ServerMenuTPGuiSkiLodge.Size = UDim2.new(0, 121, 0, 28)
+    ServerMenuTPGuiSkiLodge.Font = Enum.Font.SourceSans
+    ServerMenuTPGuiSkiLodge.Text = "Ski Lodge"
+    ServerMenuTPGuiSkiLodge.TextColor3 = Color3.fromRGB(0, 0, 0)
+    ServerMenuTPGuiSkiLodge.TextSize = 14.000
+    ServerMenuTPGuiSkiLodge.MouseButton1Down:connect(function()
+
+    Tlprt(1244, 66, 2306)
+    end)
+
+    ServerMenuTPGuiFineArtsShop.Name = "ServerMenuTPGuiFine Arts Shop"
+    ServerMenuTPGuiFineArtsShop.Parent = ServerMenuTPGuiFrame
+    ServerMenuTPGuiFineArtsShop.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    ServerMenuTPGuiFineArtsShop.Position = UDim2.new(0.0437956192, 0, 0.544323504, 0)
+    ServerMenuTPGuiFineArtsShop.Size = UDim2.new(0, 121, 0, 28)
+    ServerMenuTPGuiFineArtsShop.Font = Enum.Font.SourceSans
+    ServerMenuTPGuiFineArtsShop.Text = "Fine Arts Shop"
+    ServerMenuTPGuiFineArtsShop.TextColor3 = Color3.fromRGB(0, 0, 0)
+    ServerMenuTPGuiFineArtsShop.TextSize = 14.000
+    ServerMenuTPGuiFineArtsShop.MouseButton1Down:connect(function()
+
+    Tlprt(5207, -156, 719)
+    end)
+
+    ServerMenuTPGuiEndTimes.Name = "ServerMenuTPGuiEnd Times"
+    ServerMenuTPGuiEndTimes.Parent = ServerMenuTPGuiFrame
+    ServerMenuTPGuiEndTimes.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    ServerMenuTPGuiEndTimes.Position = UDim2.new(0.0437956192, 0, 0.908, 0)
+    ServerMenuTPGuiEndTimes.Size = UDim2.new(0, 121, 0, 28)
+    ServerMenuTPGuiEndTimes.Font = Enum.Font.SourceSans
+    ServerMenuTPGuiEndTimes.Text = "End Times(YOU GET DAM-\nAGE IF BRIDGE NOT DOWN)"
+    ServerMenuTPGuiEndTimes.TextColor3 = Color3.fromRGB(0, 0, 0)
+    ServerMenuTPGuiEndTimes.TextSize = 11
+    ServerMenuTPGuiEndTimes.MouseButton1Down:connect(function()
+
+    Tlprt(113, -204, -951)
+    end)
+
+    ServerMenuTPGuiClose.Name = "ServerMenuTPGuiClose"
+    ServerMenuTPGuiClose.Parent = ServerMenuTPGuiFrame
+    ServerMenuTPGuiClose.BackgroundColor3 = Color3.new(1, 0, 0)
+    ServerMenuTPGuiClose.Position = UDim2.new(0.0437956192, 0, 0.957, 0)
+    ServerMenuTPGuiClose.Size = UDim2.new(0, 121, 0, 19)
+    ServerMenuTPGuiClose.Font = Enum.Font.SourceSans
+    ServerMenuTPGuiClose.Text = "close TP gui"
+    ServerMenuTPGuiClose.TextColor3 = Color3.fromRGB(0, 0, 0)
+    ServerMenuTPGuiClose.TextSize = 14
+    ServerMenuTPGuiClose.MouseButton1Down:Connect(function()
+        ServerMenuTPGuiScreenGui:Destroy()
+    end)
+
+    ServerMenuTPGuiDock.Name = "ServerMenuTPGuiDock"
+    ServerMenuTPGuiDock.Parent = ServerMenuTPGuiFrame
+    ServerMenuTPGuiDock.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    ServerMenuTPGuiDock.Position = UDim2.new(0.0510948896, 0, 0.65007776, 0)
+    ServerMenuTPGuiDock.Size = UDim2.new(0, 121, 0, 28)
+    ServerMenuTPGuiDock.Font = Enum.Font.SourceSans
+    ServerMenuTPGuiDock.Text = "Dock"
+    ServerMenuTPGuiDock.TextColor3 = Color3.fromRGB(0, 0, 0)
+    ServerMenuTPGuiDock.TextSize = 14.000
+    ServerMenuTPGuiDock.MouseButton1Down:connect(function()
+
+    Tlprt(1114, 3.2, -197)
+    end)
+
+
+    ServerMenuTPGuiBridge.Name = "ServerMenuTPGuiBridge"
+    ServerMenuTPGuiBridge.Parent = ServerMenuTPGuiFrame
+    ServerMenuTPGuiBridge.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    ServerMenuTPGuiBridge.Position = UDim2.new(0.0437956192, 0, 0.704510093, 0)
+    ServerMenuTPGuiBridge.Size = UDim2.new(0, 121, 0, 28)
+    ServerMenuTPGuiBridge.Font = Enum.Font.SourceSans
+    ServerMenuTPGuiBridge.Text = "Bridge"
+    ServerMenuTPGuiBridge.TextColor3 = Color3.fromRGB(0, 0, 0)
+    ServerMenuTPGuiBridge.TextSize = 14.000
+    ServerMenuTPGuiBridge.MouseButton1Down:connect(function()
+
+    Tlprt(113, 15, -977)
+    end)
+
+    ServerMenuTPGuiStrangeMan.Name = "ServerMenuTPGuiStrange Man"
+    ServerMenuTPGuiStrangeMan.Parent = ServerMenuTPGuiFrame
+    ServerMenuTPGuiStrangeMan.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    ServerMenuTPGuiStrangeMan.Position = UDim2.new(0.0437956192, 0, 0.758942485, 0)
+    ServerMenuTPGuiStrangeMan.Size = UDim2.new(0, 121, 0, 28)
+    ServerMenuTPGuiStrangeMan.Font = Enum.Font.SourceSans
+    ServerMenuTPGuiStrangeMan.Text = "Strange Man"
+    ServerMenuTPGuiStrangeMan.TextColor3 = Color3.fromRGB(0, 0, 0)
+    ServerMenuTPGuiStrangeMan.TextSize = 14.000
+    ServerMenuTPGuiStrangeMan.MouseButton1Down:connect(function()
+
+    Tlprt(1061, 20, 1131)
+    end)
+
+end)
