@@ -1,2 +1,2 @@
 # Roblox-scripts
- This repository contains all my Roblox cheating scripts.
+ This repository contains a Roblox cheating script.
